@@ -1,0 +1,95 @@
+-- =========================
+-- PRODUITS
+-- =========================
+INSERT INTO product (id, name, price, image_url, description, precommande, hascouleur) VALUES
+(1, 'Escarpins léopard', 120.0, 'escarpin.jpg', 'Escarpins chics à imprimé léopard.', false, true),
+(2, 'Sandales à talons hauts', 95.0, 'Sandales.jpg', 'Sandales élégantes pour soirées d''été.', false, false),
+(3, 'Chaussures à talon élégant', 135.0, 'sabots.jpg', 'Chaussures parfaites pour le bureau.', false, false),
+(4, 'Loafers', 110.0, 'loafers.jpg', 'Loafers confortables et tendance.', false, false),
+(5, 'Bottines noires', 120.0, 'botinnesnoires/', 'Bottines noires classiques et indémodables.', false, false),
+(6, 'Bottines rouges', 125.0, 'botinnesrouges.jpg', 'Bottines rouges pour un style audacieux.', false, false),
+(7, 'Bottes marrons', 130.0, 'bottesmarrons.jpg', 'Bottes marrons en cuir véritable.', false, false),
+(8, 'Bottes noires', 140.0, 'bottesnoiresNappa.jpg', 'Bottes noires hautes, élégantes et robustes.', false, false);
+
+-- =========================
+-- TAILLES DISPONIBLES (si tu utilises encore cette table)
+-- =========================
+INSERT INTO taille_product (id_product, taille) VALUES (1, '36');
+INSERT INTO taille_product (id_product, taille) VALUES (1, '37');
+INSERT INTO taille_product (id_product, taille) VALUES (2, '38');
+INSERT INTO taille_product (id_product, taille) VALUES (2, '39');
+INSERT INTO taille_product (id_product, taille) VALUES (3, '36');
+INSERT INTO taille_product (id_product, taille) VALUES (3, '37');
+INSERT INTO taille_product (id_product, taille) VALUES (4, '38');
+INSERT INTO taille_product (id_product, taille) VALUES (4, '39');
+INSERT INTO taille_product (id_product, taille) VALUES (5, '36');
+INSERT INTO taille_product (id_product, taille) VALUES (5, '37');
+INSERT INTO taille_product (id_product, taille) VALUES (6, '38');
+INSERT INTO taille_product (id_product, taille) VALUES (6, '39');
+INSERT INTO taille_product (id_product, taille) VALUES (6, '40');
+INSERT INTO taille_product (id_product, taille) VALUES (6, '41');
+INSERT INTO taille_product (id_product, taille) VALUES (2, '42');
+INSERT INTO taille_product (id_product, taille) VALUES (2, '43');
+INSERT INTO taille_product (id_product, taille) VALUES (7, '36');
+INSERT INTO taille_product (id_product, taille) VALUES (7, '37');
+INSERT INTO taille_product (id_product, taille) VALUES (8, '38');
+INSERT INTO taille_product (id_product, taille) VALUES (8, '39');
+
+-- =========================
+-- COULEURS DISPONIBLES (seulement si hascouleur = true)
+-- =========================
+INSERT INTO couleur_product (couleur, id_product) VALUES
+('Noir', 1),
+('Rouge', 1),
+('Beige', 2),
+('Noir', 2),
+('Marron', 3),
+('Noir', 4),
+('Noir', 5),
+('Rouge', 5),
+('Beige', 6),
+('Noir', 6),
+('Marron', 7),
+('Noir', 8);
+
+-- =========================
+-- STOCK PAR VARIANTE (product_id, taille, couleur NULL si pas de couleurs)
+-- =========================
+
+-- Produit 1 : a des couleurs (Noir, Rouge)
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '36', 'Noir', 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '37', 'Noir', 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '40', 'Noir', 4);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '36', 'Rouge', 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '37', 'Rouge', 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (1, '40', 'Rouge', 0);
+
+-- Produit 2..8 : pas de couleurs → couleur = NULL (NE PAS mettre '')
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (2, '38', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (2, '39', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (2, '40', NULL, 2);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (3, '36', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (3, '37', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (3, '40', NULL, 0);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (4, '38', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (4, '39', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (4, '40', NULL, 0);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (5, '36', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (5, '37', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (5, '40', NULL, 0);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (6, '38', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (6, '39', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (6, '40', NULL, 0);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (7, '36', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (7, '37', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (7, '40', NULL, 0);
+
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (8, '38', NULL, 5);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (8, '39', NULL, 3);
+INSERT INTO stock_taille (product_id, taille, couleur, quantity) VALUES (8, '40', NULL, 0);

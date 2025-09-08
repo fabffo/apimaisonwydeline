@@ -1,0 +1,49 @@
+# ===========================
+# Maven / Spring Boot
+# ===========================
+
+# Target folder (compilé)
+target/
+
+# Logs
+*.log
+
+# Packages
+*.jar
+*.war
+*.ear
+
+# Eclipse / IntelliJ / VSCode
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+
+# Eclipse specific
+.metadata/
+bin/
+
+# VSCode specific
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+application.properties
+application.yml
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Generated files
+*.class
+*.out
+
+# Test reports
+surefire-reports/
+failsafe-reports/
