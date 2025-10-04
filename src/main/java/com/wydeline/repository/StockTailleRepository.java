@@ -64,7 +64,9 @@ public interface StockTailleRepository extends JpaRepository<StockTaille, Long> 
             """)
      List<StockTaille> findAllAvailable();
     
-    
+ // Récupère uniquement les tailles distinctes avec du stock > 0 pour un produit donné
+    @Query("select distinct s.taille from StockTaille s where s.produit.id = :produitId and s.quantite > 0")
+    List<String> findTaillesEnStockByProduitId(Long produitId);
     
     
 }
